@@ -1,5 +1,5 @@
 import { OrbitControls, TransformControls } from "@react-three/drei";
-
+import { sine, sineLevel, sineLfo, logData } from "./Oscillator.jsx";
 export default function Experience() {
   return (
     <>
@@ -11,12 +11,11 @@ export default function Experience() {
         <sphereGeometry />
         <meshStandardMaterial color="orange" />
       </mesh>
-      <TransformControls position-x={2} mode="scale">
-        <mesh scale={1.5}>
-          <boxGeometry />
-          <meshStandardMaterial color="mediumpurple" />
-        </mesh>
-      </TransformControls>
+
+      <mesh scale={1.5}>
+        <boxGeometry />
+        <meshStandardMaterial color="mediumpurple" />
+      </mesh>
 
       <mesh position-y={-1} rotation-x={-Math.PI * 0.5} scale={15}>
         <planeGeometry />
