@@ -1,8 +1,11 @@
 import { OrbitControls, TransformControls, Html } from "@react-three/drei";
-import { sine, sineLevel, sineLfo, logData } from "./Oscillator.jsx";
+import { sine, sineLevel, sineLfo, logData, useWave } from "./Oscillator.jsx";
 import Control from "./Control.jsx";
 import Lfo from "./Lfo.jsx";
+import * as Tone from "tone";
+
 export default function Experience() {
+  const [waveformData] = useWave();
   return (
     <>
       <OrbitControls makeDefault />
@@ -23,6 +26,7 @@ export default function Experience() {
         <planeGeometry />
         <meshStandardMaterial color="greenyellow" />
         <Html>
+          <p>{waveformData}</p>
           <div className="oscObject">
             <Control synthLevel={sineLevel} synth={sine} />
             <Lfo className="lfo" sineTremolo={sineLfo} />

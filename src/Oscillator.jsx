@@ -1,12 +1,28 @@
+import { useEffect, useState } from "react";
 import * as Tone from "tone";
 
 export const sineLevel = new Tone.Volume(-30).toDestination();
 let waveform = new Tone.Waveform();
 Tone.Destination.connect(waveform);
 
+export function useWave() {
+  const [waveformData, setWaveFormData] = useState([]);
+  useEffect(() => {
+    if (waveform) {
+      const value = waveform.getValue(0);
+      setWaveFormData(value);
+      console.log("waveformData", waveformData);
+    } else {
+      return;
+    }
+  }, []);
+  return waveformData;
+}
+
 export function logData() {
   const value = waveform.getValue(0);
-  console.log("value", value);
+  return value;
+  //   console.log("value", value);
 }
 
 export const sineLfo = new Tone.Tremolo({
