@@ -1,9 +1,10 @@
-import { OrbitControls, TransformControls } from "@react-three/drei";
+import { OrbitControls, TransformControls, Html } from "@react-three/drei";
 import { sine, sineLevel, sineLfo, logData } from "./Oscillator.jsx";
+import Control from "./Control.jsx";
+import Lfo from "./Lfo.jsx";
 export default function Experience() {
   return (
     <>
-      <Controls />
       <OrbitControls makeDefault />
       <directionalLight position={[1, 2, 3]} intensity={1.5} />
       <ambientLight intensity={0.5} />
@@ -21,6 +22,13 @@ export default function Experience() {
       <mesh position-y={-1} rotation-x={-Math.PI * 0.5} scale={15}>
         <planeGeometry />
         <meshStandardMaterial color="greenyellow" />
+        <Html>
+          <div className="oscObject">
+            <Control synthLevel={sineLevel} synth={sine} />
+            <Lfo className="lfo" sineTremolo={sineLfo} />
+            <button onClick={() => logData()}>Log to Console</button>
+          </div>
+        </Html>
       </mesh>
     </>
   );
