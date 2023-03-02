@@ -22,7 +22,13 @@ export default function Experience() {
         <meshStandardMaterial color="mediumpurple" />
       </mesh>
 
-      <mesh position-y={-1} rotation-x={-Math.PI * 0.5} scale={15}>
+      <mesh
+        position-y={-1}
+        position-x={5}
+        position-z={-4}
+        rotation-x={-Math.PI * 0.5}
+        scale={15}
+      >
         <planeGeometry />
         <meshStandardMaterial color="greenyellow" />
         <Html>
