@@ -11,11 +11,12 @@ export default function Experience() {
         <sphereGeometry />
         <meshStandardMaterial color="orange" />
       </mesh>
-
-      <mesh scale={1.5}>
-        <boxGeometry />
-        <meshStandardMaterial color="mediumpurple" />
-      </mesh>
+      <TransformControls position-x={2} mode="scale">
+        <mesh scale={1.5}>
+          <boxGeometry />
+          <meshStandardMaterial color="mediumpurple" />
+        </mesh>
+      </TransformControls>
 
       <mesh position-y={-1} rotation-x={-Math.PI * 0.5} scale={15}>
         <planeGeometry />
