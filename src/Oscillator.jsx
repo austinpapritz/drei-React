@@ -21,8 +21,7 @@ export function useWave() {
 
 export function logData() {
   const value = waveform.getValue(0);
-  return value;
-  //   console.log("value", value);
+  console.log("value", value);
 }
 
 export const sineLfo = new Tone.Tremolo({
