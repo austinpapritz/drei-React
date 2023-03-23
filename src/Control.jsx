@@ -4,7 +4,7 @@ import { CircleSlider } from "react-circle-slider";
 // import "./Control.css";
 
 export default function Control({ type, synth, synthLevel }) {
-  const dialSynthLevel = useRef(-30);
+  const dialSynthLevel = useRef(-12);
   const playingSynth = useRef(false);
   const freqSynth = useRef(150);
   const [status, setStatus] = useState(false);
@@ -38,6 +38,7 @@ export default function Control({ type, synth, synthLevel }) {
   };
 
   const handlePlay = () => {
+    Tone.start();
     if (!playingSynth.current) {
       synth.triggerAttack(synth.frequency.value);
       playingSynth.current = true;

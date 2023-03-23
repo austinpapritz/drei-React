@@ -5,7 +5,19 @@ import Lfo from "./Lfo.jsx";
 import * as Tone from "tone";
 
 export default function Experience() {
-  const [waveformData] = useWave();
+  // let simpleSynth = new Tone.MonoSynth({
+  //   volume: -1,
+  //   oscillator: { type: "sine", frequency: 300 },
+  // });
+  // simpleSynth.triggerAttack();
+  // simpleSynth.toDestination();
+  // let waveform = new Tone.Waveform();
+  // Tone.Destination.connect(waveform);
+  // const value = waveform.getValue(0);
+  // console.log("value", value);
+
+  const { waveformData } = useWave();
+  console.log("waveformData", waveformData);
   return (
     <>
       <OrbitControls makeDefault />
